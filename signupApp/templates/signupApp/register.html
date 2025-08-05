@@ -1,0 +1,37 @@
+{% extends "signupApp/base.html" %}
+
+{% load static %}  <!-- Django template tag -->
+
+{% block title %}CIT 390 COURSE REGISTRATION PAGE{% endblock %}
+{% block content %}
+ 
+<!--Link the CSS file to this page-->
+<link rel="stylesheet" href="{% static 'signupApp/css/AUlogo.css' %}">
+<!--Display the Image where you want it on the page; say at the top-->
+<img src="{% static 'signupApp/images/AUlogo.png' %}" alt="Logo" class="logo">
+<!--Now, to reflect the Namespace update/change--><h1>CIT 390 COURSE REGISTRATION PAGE</h1>
+ <h2>Enter your information below:</h2>
+ <form method="post" action="">
+   {% csrf_token %}
+   {{ form }}
+<br>  
+ <button name="save">Submit</button>
+ </form>
+
+ <h2>Completed registrations:</h2>
+ {% for reg in regis %}
+ 
+ <p>
+ Name: {{ reg.firstName }} {{ reg.lastName }}
+ </p>
+ <p>
+ Student ID: {{ reg.studentID }} | Course Code: {{ reg.courseCode }} 
+ | Term: {{ reg.term }} | Date: {{ reg.date }}
+ 
+ </p>
+ <p>
+ **************************************************
+ </p>
+ {% endfor %}
+
+{% endblock %}
