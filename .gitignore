@@ -1,2 +1,6 @@
 .env
 cit390venv
+.env2
+appservice-settings.py
+.env-githubsecrets
+github-setsecrets.py
