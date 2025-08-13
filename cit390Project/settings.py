@@ -172,8 +172,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-
+#STATIC_URL = '/static/'
+STATIC_URL = f'https://{env("AZURE_ACCOUNT_NAME")}.blob.core.windows.net/{env("AZURE_CONTAINER")}/'
 
 #STATIC_ROOT = '/home/ben/cit390/cit390Project/staticfiles/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
